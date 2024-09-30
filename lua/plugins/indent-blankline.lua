@@ -15,56 +15,18 @@ return {
       hooks.register(hooks.type.SCOPE_HIGHLIGHT, hooks.builtin.scope_highlight_from_extmark)
 
       return {
-         -- enabled = true,
-         -- debounce = 200,
          viewport_buffer = {
             min = 0, -- default: 30
          },
-         indent = {
-            -- char = "▎",
-            -- highlight = "IblIndent",
-            -- smart_indent_cap = true,
-            -- priority = 1,
-            -- repeat_linebreak = true,
-         },
-         whitespace = {
-            -- highlight = "IblWhitespace",
-            -- remove_blankline_trail = true,
-         },
          scope = {
-            -- enabled = true,
-            -- char = ibl.config.indent.char,
-            show_start = false, -- default: true
-            show_end = false, -- default: true
-            -- show_exact_scope = false,
-            -- injected_languages = true,
+            show_start = false,
+            show_end = false,
             highlight = highlight,
-            -- priority = 1024,
             include = {
                node_type = {
-                  ["*"] = { "*" },
+                  lua = { "return_statement", "table_constructor" }
                }
             },
-            -- exclude = {},
-            -- exclude = {
-            --    filetypes = {
-            --       "lspinfo",
-            --       "packer",
-            --       "checkhealth",
-            --       "help",
-            --       "man",
-            --       "gitcommit",
-            --       "TelescopePrompt",
-            --       "TelescopeResults",
-            --       "",
-            --    },
-            --    buftypes = {
-            --       "terminal",
-            --       "nofile",
-            --       "quickfix",
-            --       "prompt",
-            --    },
-            -- },
          },
       }
    end,
